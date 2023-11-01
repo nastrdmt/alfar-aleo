@@ -1,8 +1,17 @@
 {
+  "author": {
+    "name": "alfar0x",
+    "url": "https://t.me/+FozX3VZA0RIyNWY6"
+  },
+  "homepage": "https://github.com/alfar0x/aleo-wallet-generator",
   "type": "module",
   "dependencies": {
     "@aleohq/sdk": "^0.6.5",
     "@demox-labs/aleo-hd-key": "^0.0.1",
     "bip39": "^3.1.0"
+  },
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "gen": "node app.js"
   }
 }

@@ -16,7 +16,7 @@ const now = () => {
   return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
 };
 
-const accounts = Array.from({ length: process.argv[2] || })
+const accounts = Array.from({ length: process.argv[2] || 10 })
   .map(() => {
     const mnemonic = generateMnemonic(128);
 
