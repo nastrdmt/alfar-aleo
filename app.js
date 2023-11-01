@@ -4,8 +4,6 @@ import { Account } from "@aleohq/sdk";
 import { derivePath } from "@demox-labs/aleo-hd-key";
 import { generateMnemonic, mnemonicToSeedSync } from "bip39";
 
-const COUNT = 10;
-
 const now = () => {
   const now = new Date();
   const year = now.getFullYear();
@@ -18,7 +16,7 @@ const now = () => {
   return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
 };
 
-const accounts = Array.from({ length: COUNT })
+const accounts = Array.from({ length: process.argv[2] || })
   .map(() => {
     const mnemonic = generateMnemonic(128);
 
