@@ -52,8 +52,7 @@ const getBalance = async (address, userAgent, proxyAgent) => {
 
     return res.data || "0";
   } catch (error) {
-    console.error(error.message);
-    return error.messages;
+    return error.message || "undefined error";
   }
 };
 
