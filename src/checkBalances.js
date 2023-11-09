@@ -71,7 +71,7 @@ const main = async () => {
   await sleep(10 * 1000);
 
   while (addresses.length) {
-    const address = addresses.pop();
+    const address = addresses.shift();
 
     const userAgent = randomChoice(userAgents);
     const proxyAgent = proxies.length
