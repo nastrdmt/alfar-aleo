@@ -53,7 +53,9 @@ const main = async () => {
 
   await sleep(10 * 1000);
 
-  for (const address of addresses) {
+  while (addresses.length) {
+    const address = addresses.pop();
+
     const userAgent = randomChoice(userAgents);
     const proxyAgent = proxies.length
       ? getProxyAgent(randomChoice(proxies))
@@ -68,7 +70,7 @@ const main = async () => {
       },
     );
 
-    const balance = res.data;
+    const balance = res.data || "0";
 
     console.log(`${address} - ${balance}`);
 
@@ -80,7 +82,7 @@ const main = async () => {
 
     if (MOBILE_PROXY_ROTATE_URL) await axios.get(MOBILE_PROXY_ROTATE_URL);
 
-    await sleep(CHECK_BAL_SLEEP_BETWEEN_ACCS_SEC * 1000);
+    if (address.length) await sleep(CHECK_BAL_SLEEP_BETWEEN_ACCS_SEC * 1000);
   }
 };
 
