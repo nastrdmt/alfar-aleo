@@ -90,7 +90,7 @@ const main = async () => {
 
     if (MOBILE_PROXY_ROTATE_URL) await axios.get(MOBILE_PROXY_ROTATE_URL);
 
-    if (address.length) await sleep(CHECK_BAL_SLEEP_BETWEEN_ACCS_SEC * 1000);
+    if (addresses.length) await sleep(CHECK_BAL_SLEEP_BETWEEN_ACCS_SEC * 1000);
   }
 };
 
