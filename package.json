@@ -16,6 +16,7 @@
   "scripts": {
     "gen": "node src/generate.js",
     "check-balances": "node src/checkBalances.js",
+    "notify": "node src/notify.js",
     "update": "git reset --hard HEAD && git pull"
   }
 }
