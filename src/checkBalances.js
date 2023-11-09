@@ -39,6 +39,24 @@ const now = () => {
   return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
 };
 
+const getBalance = async (address, userAgent, proxyAgent) => {
+  try {
+    const res = await axios.get(
+      `https://api.explorer.aleo.org/v1/testnet3/program/credits.aleo/mapping/account/${address}`,
+      {
+        headers: { "User-Agent": userAgent },
+        httpAgent: proxyAgent,
+        httpsAgent: proxyAgent,
+      },
+    );
+
+    return res.data || "0";
+  } catch (error) {
+    console.error(error.message);
+    return error.messages;
+  }
+};
+
 const main = async () => {
   const time = now();
 
@@ -61,16 +79,7 @@ const main = async () => {
       ? getProxyAgent(randomChoice(proxies))
       : undefined;
 
-    const res = await axios.get(
-      `https://api.explorer.aleo.org/v1/testnet3/program/credits.aleo/mapping/account/${address}`,
-      {
-        headers: { "User-Agent": userAgent },
-        httpAgent: proxyAgent,
-        httpsAgent: proxyAgent,
-      },
-    );
-
-    const balance = res.data || "0";
+    const balance = getBalance(address, userAgent, proxyAgent);
 
     console.log(`${address} - ${balance}`);
 
