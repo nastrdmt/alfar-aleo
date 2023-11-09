@@ -78,7 +78,7 @@ const main = async () => {
       ? getProxyAgent(randomChoice(proxies))
       : undefined;
 
-    const balance = getBalance(address, userAgent, proxyAgent);
+    const balance = await getBalance(address, userAgent, proxyAgent);
 
     console.log(`${address} - ${balance}`);
 
